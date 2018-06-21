@@ -1,0 +1,331 @@
+
+In Activity_main.xml file,
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="0"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="107dp" />
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <Button
+        android:id="@+id/buttoncl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="clear"
+        android:onClick="onClickclear"/>
+    <Button
+        android:id="@+id/buttondel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="delete"
+        android:onClick="onClickdel"/>
+    <Button
+        android:id="@+id/buttone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="="
+        android:onClick="onClickequal"/>
+</LinearLayout>
+    <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+        <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1"
+        android:onClick="one"/>
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="0"
+            android:onClick="two"
+            android:text="2" />
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="3"
+            android:onClick="three"/>
+        <Button
+            android:id="@+id/buttonp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="+"
+            android:onClick="onClickPlus"/>
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4"
+            android:onClick="four"/>
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="5"
+            android:onClick="five"/>
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="6"
+            android:onClick="six" />
+        <Button
+            android:id="@+id/buttonm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="-"
+            android:onClick="onClicksub"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="7"
+            android:onClick="seven"/>
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="8"
+            android:onClick="eight"/>
+        <Button
+            android:id="@+id/button9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="9"
+            android:onClick="nine"/>
+        <Button
+            android:id="@+id/buttoni"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="*"
+            android:onClick="onClickmul"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/buttondot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="."
+            android:onClick="dot"/>
+        <Button
+            android:id="@+id/button0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="0"
+            android:onClick="zero"/>
+        <Button
+            android:id="@+id/buttond"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="/"
+            android:onClick="onClickdiv"/>
+        <Button
+            android:id="@+id/buttonmod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="%"
+            android:onClick="onClickmod"/>
+    </LinearLayout>
+</LinearLayout>
+
+
+In Main_Activity.java file,
+package com.example.calculator;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+import java.lang.reflect.Array;
+import java.net.Inet4Address;
+
+public class MainActivity extends AppCompatActivity {
+    String f;//flag variable
+    EditText e;
+    String s;
+    double d1, d2;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+
+    public void one(View v) {
+        e = (EditText) findViewById(R.id.editText);
+        e.append("1");
+     }
+
+    public void two(View v) {
+        e = (EditText) findViewById(R.id.editText);
+        e.append("2");
+    }
+
+    public void three(View v) {
+        e = (EditText) findViewById(R.id.editText);
+        e.append("3");
+    }
+
+    public void four(View v) {
+        e = (EditText) findViewById(R.id.editText);
+        e.append("4");
+   }
+
+    public void five(View v) {
+        e = (EditText) findViewById(R.id.editText);
+        e.append("5");
+    }
+
+    public void six(View v) {
+        e = (EditText) findViewById(R.id.editText);
+        e.append("6");
+    }
+
+    public void seven(View v) {
+        e = (EditText) findViewById(R.id.editText);
+        e.append("7");
+    }
+
+    public void eight(View v) {
+        e = (EditText) findViewById(R.id.editText);
+        e.append("8");
+    }
+
+    public void nine(View v) {
+        e = (EditText) findViewById(R.id.editText);
+        e.append("9");
+    }
+
+    public void zero(View v) {
+        e = (EditText) findViewById(R.id.editText);
+        e.append("0");
+    }
+
+    public void dot(View v) {
+        e = (EditText) findViewById(R.id.editText);
+        e.append(".");
+    }
+
+    public void onClickPlus(View v) {
+        s = e.getText().toString();
+        d1 = Double.parseDouble(s);
+        e.setText("");
+        f = "+";
+    }
+
+    public void onClickmod(View v) {
+        s = e.getText().toString();
+        d1 = Double.parseDouble(s);
+        e.setText("");
+        f = "%";
+    }
+
+    public void onClicksub(View v) {      
+        s = e.getText().toString();
+        d1 = Double.parseDouble(s);
+        e.setText("");
+        f = "-";
+
+    }
+
+    public void onClickmul(View v) {
+        e = (EditText) findViewById(R.id.editText);
+        s = e.getText().toString();
+        d1 = Double.parseDouble(s);
+        e.setText("");
+        f = "*";
+    }
+
+    public void onClickdiv(View v) {        
+        s = e.getText().toString();
+        d1 = Double.parseDouble(s);
+        e.setText("");
+        f = "/";
+    }
+
+    public void onClickequal(View v) {       
+        String s = e.getText().toString();
+        d2 = Double.parseDouble(s);
+        switch (f) {
+            case "+":
+                double sum = d1 + d2;
+                e.setText("" + sum);
+                break;
+            case "-":
+                double dif = d1 - d2;
+                e.setText("" + dif);
+                break;
+            case "*":
+                double pro = d1 * d2;
+                e.setText("" + pro);
+                break;
+            case "/":
+                double quo = d1 / d2;
+                e.setText("" + quo);
+                break;
+            case "%":
+                double rem = d1 % d2;
+                e.setText("" + rem);
+                break;
+        }
+
+    }
+//to clear content in editText
+    public void onClickclear(View v) {
+        e.getText().clear();
+    }
+//to delete last entered digit
+    public void onClickdel(View v) {
+        e = (EditText) findViewById(R.id.editText);
+        s = e.getText().toString();
+        e.setText("");
+       String[] a=s.split("");
+        for (int i = 0; s.length() > i; i++) {
+             e.append(a[i]);
+        }
+    }
+}
+
